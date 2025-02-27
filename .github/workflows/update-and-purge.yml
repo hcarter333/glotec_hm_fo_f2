@@ -3,33 +3,34 @@ name: Purge Old Versions of file.txt
 on:
   push:
     branches:
-      - main  # Adjust as necessary for your branch
+      - main  # Adjust if needed
   workflow_dispatch:
 
 jobs:
   purge-old-versions:
     runs-on: ubuntu-latest
     steps:
-      # 1. Checkout the entire repository history.
+      # 1. Checkout the full repository history
       - name: Checkout repository
         uses: actions/checkout@v3
         with:
           fetch-depth: 0
 
-      # 2. Install the BFG Repo-Cleaner.
+      # 2. Install BFG Repo-Cleaner
       - name: Install BFG Repo-Cleaner
         run: |
           wget https://repo1.maven.org/maven2/com/madgag/bfg/1.14.0/bfg-1.14.0.jar -O bfg.jar
 
-      # 3. Run BFG to purge all previous revisions of file.txt.
-      #    This command removes file.txt from every commit except the latest one where it is present.
+      # 3. Purge all old revisions of file.txt (keeping the latest version)
       - name: Purge old revisions of file.txt
         run: |
-          java -jar bfg.jar --delete-files hmf2.iczml
+          java -jar bfg.jar --delete-files file.txt
           git reflog expire --expire=now --all
           git gc --prune=now --aggressive
 
-      # 4. Force push the rewritten history to the remote repository.
+      # 4. Force push the rewritten history using your PAT
       - name: Force push rewritten history
+        env:
+          MY_PAT: ${{ secrets.MY_PAT }}
         run: |
-          git push origin --force --all
+          git push https://$MY_PAT@github.com/hcarter333/glotec_hm_fo_f2.git --force --all
