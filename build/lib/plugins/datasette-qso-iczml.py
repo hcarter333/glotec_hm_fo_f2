@@ -239,7 +239,7 @@ def line_color(thmF2_km):
     #be the min and the last will be the max
     min_alt_km = colormin
     max_alt_km = colormax
-    print("input " + str(hmF2_km) + "colorscale " + str(colormin) + " " + str(colormax))
+    #print("input " + str(hmF2_km) + "colorscale " + str(colormin) + " " + str(colormax))
     # Define the color scale as lists of [R, G, B, A].
     alt_color_scale = [
         [0, 0, 0, hmF2_colors],       # Black
@@ -263,7 +263,7 @@ def line_color(thmF2_km):
 
     # Normalize the altitude and map it to an index in the color scale.
     range_alt = max_alt_km - min_alt_km
-    print("range_alt " + str(range_alt))
+    #print("range_alt " + str(range_alt))
     normalized = (hmF2_km - min_alt_km) / range_alt
     if normalized == 1:
         normalized = 0.95
@@ -323,7 +323,7 @@ def time_span(rows):
     #find the largest time
     max_time = datetime.datetime.strptime('1968-02-02 00:00:00', "%Y-%m-%d %H:%M:%S")
     for row in rows:
-        print(row['timestamp'])
+        #print(row['timestamp'])
         time_no_z = row['timestamp'].replace('Z','')
         new_time = datetime.datetime.strptime(time_no_z.replace('T',' '), "%Y-%m-%d %H:%M:%S")
         if new_time > max_time:
@@ -381,8 +381,8 @@ def get_czml(rows):
         f2e = f2s + f2delta + f2delta
         f2_end.append(f2e)
         f2h = float(row['edmaxalt'])
-        print(str(f2h))
-        print(str(row['Spotter']) + " f2 height = " + str(f2h) + "km")
+        #print(str(f2h))
+        #print(str(row['Spotter']) + " f2 height = " + str(f2h) + "km")
         f2_height.append(f2h*1000)
         #mid_lng = str(midpoint_lng(float(row['tx_lat']),float(row['tx_lng']),\
         #                   float(row['rx_lat']),float(row['rx_lng'])))
