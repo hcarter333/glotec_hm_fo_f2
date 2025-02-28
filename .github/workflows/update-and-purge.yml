@@ -17,10 +17,25 @@ jobs:
           token: ${{ secrets.MY_PAT }}
           fetch-depth: 0
 
+
+    strategy:
+      matrix:
+        python-version: ["3.8"]
+    steps:
+      - name: Set up Python ${{ matrix.python-version }}
+        uses: actions/setup-python@v4
+        with:
+          python-version: ${{ matrix.python-version }}
+          cache: pip
+          cache-dependency-path: pyproject.toml
+     - name: Install dependencies
+        run: |
+          pip install '.[test]'
+      
       - name: Update file.txt
         run: |
           python f2_update.py
-          git commit -m "Update file.txt with new content"
+          git commit -m "Update czmls with new content"
 
       # 2. Install BFG Repo-Cleaner.
       - name: Install BFG Repo-Cleaner
