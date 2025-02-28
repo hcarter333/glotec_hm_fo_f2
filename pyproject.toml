@@ -15,6 +15,7 @@ dependencies = [
     "datasette-enrichments>=0.2",
     "sqlite-utils",
     "numpy",
+    "requests",
 ]
 
 [project.urls]
