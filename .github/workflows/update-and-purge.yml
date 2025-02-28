@@ -2,11 +2,9 @@ name: Purge Old Versions of file.txt
 
 on:
   push:
-    branches:
-      - main  # Adjust if needed
-  workflow_dispatch:
+  workflow_dispatch: {}
   schedule:
-    - cron:  '*/12 * * * *'
+    - cron: '*/12 * * * *'
     
 jobs:
   purge-old-versions:
