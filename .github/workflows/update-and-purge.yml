@@ -5,7 +5,9 @@ on:
     branches:
       - main  # Adjust if needed
   workflow_dispatch:
-
+  schedule:
+    - cron:  '6,26,46 * * * *'
+    
 jobs:
   purge-old-versions:
     runs-on: ubuntu-latest
