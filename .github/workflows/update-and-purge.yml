@@ -16,13 +16,7 @@ jobs:
         with:
           token: ${{ secrets.MY_PAT }}
           fetch-depth: 0
-
-
-    strategy:
-      matrix:
-        python-version: ["3.8"]
-    steps:
-      - name: Set up Python ${{ matrix.python-version }}
+      - name: Set up Python "3.8"
         uses: actions/setup-python@v4
         with:
           python-version: ${{ matrix.python-version }}
