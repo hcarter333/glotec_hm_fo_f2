@@ -1,0 +1,24 @@
+Metadata-Version: 2.1
+Name: glotec_hm_fo_f2
+Version: 0.1.0
+Summary: Latest F2 Layer Data
+Author: Hamilton Carter
+License: Apache-2.0
+Project-URL: Homepage, https://github.com/datasette/datasette-enrichments-gmap-geocode
+Project-URL: Changelog, https://github.com/datasette/datasette-enrichments-gmap-geocode/releases
+Project-URL: Issues, https://github.com/datasette/datasette-enrichments-gmap-geocode/issues
+Project-URL: CI, https://github.com/datasette/datasette-enrichments-gmap-geocode/actions
+Classifier: Framework :: Datasette
+Classifier: License :: OSI Approved :: Apache Software License
+Requires-Python: >=3.8
+Description-Content-Type: text/markdown
+Requires-Dist: datasette
+Requires-Dist: datasette-enrichments>=0.2
+Requires-Dist: sqlite-utils
+Requires-Dist: numpy
+Requires-Dist: requests
+Requires-Dist: netCDF4
+Provides-Extra: test
+Requires-Dist: pytest<=7.4.3; extra == "test"
+Requires-Dist: pytest-asyncio<=0.21.1; extra == "test"
+Requires-Dist: pytest-httpx; extra == "test"

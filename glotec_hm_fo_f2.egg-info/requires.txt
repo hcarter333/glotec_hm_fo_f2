@@ -1,0 +1,11 @@
+datasette
+datasette-enrichments>=0.2
+sqlite-utils
+numpy
+requests
+netCDF4
+
+[test]
+pytest<=7.4.3
+pytest-asyncio<=0.21.1
+pytest-httpx

@@ -1,0 +1,8 @@
+pyproject.toml
+glotec_hm_fo_f2.egg-info/PKG-INFO
+glotec_hm_fo_f2.egg-info/SOURCES.txt
+glotec_hm_fo_f2.egg-info/dependency_links.txt
+glotec_hm_fo_f2.egg-info/requires.txt
+glotec_hm_fo_f2.egg-info/top_level.txt
+plugins/datasette-qso-iczml.py
+plugins/sqrt_pg.py
