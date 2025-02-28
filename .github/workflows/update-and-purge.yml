@@ -35,7 +35,7 @@ jobs:
           git config user.email "actions@users.noreply.github.com"
           git add -A
           timestamp=$(date -u)
-          git commit -m "Update czmls with new content"
+          git commit -m "Update czmls with new content"  || exit 0
 
       - name: Install BFG Repo-Cleaner
         run: |
