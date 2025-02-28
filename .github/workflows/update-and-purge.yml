@@ -27,10 +27,13 @@ jobs:
       - name: Update file.txt
         run: |
           python f2_update.py
+      - name: Commit updates
+        run: |-
           git config user.name "Automated"
           git config user.email "actions@users.noreply.github.com"
           timestamp=$(date -u)
           git commit -m "Update czmls with new content"
+
       - name: Install BFG Repo-Cleaner
         run: |
           wget https://repo1.maven.org/maven2/com/madgag/bfg/1.14.0/bfg-1.14.0.jar -O bfg.jar
