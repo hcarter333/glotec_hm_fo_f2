@@ -16,6 +16,7 @@ dependencies = [
     "sqlite-utils",
     "numpy",
     "requests",
+    "netCDF4",
 ]
 
 [project.urls]
