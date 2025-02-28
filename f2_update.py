@@ -63,12 +63,6 @@ with open("hmf2.iczml", "w", encoding="utf-8") as f:
 print("hmf2.iczml updated.")
 
 # Step 5: Git commit and push the updated CZML files.
-print("Adding files to git...")
-run_command(["git", "add", "fof2.czml", "hmf2.iczml"])
-print("Committing changes...")
-run_command(["git", "commit", "-m", "Update CZML files with latest glotec data"])
-print("Pushing changes to origin...")
-run_command(["git", "push", "origin", "HEAD"])
 
 # Step 6: Stop the Datasette instance.
 print("Stopping Datasette...")
