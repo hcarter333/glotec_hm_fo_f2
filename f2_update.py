@@ -25,7 +25,6 @@ datasette_cmd = [
     "--plugins-dir=plugins",
     "--template-dir", "plugins/templates",
     "--root",
-    "--static", "assets:static-files/",
     "--setting", "sql_time_limit_ms", "1700000",
     "--setting", "max_returned_rows", "100000",
     "--cors",
