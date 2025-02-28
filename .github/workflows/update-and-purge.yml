@@ -17,6 +17,11 @@ jobs:
           token: ${{ secrets.MY_PAT }}
           fetch-depth: 0
 
+      - name: Update file.txt
+        run: |
+          python f2_update.py
+          git commit -m "Update file.txt with new content"
+
       # 2. Install BFG Repo-Cleaner.
       - name: Install BFG Repo-Cleaner
         run: |
