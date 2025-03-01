@@ -239,7 +239,7 @@ def line_color(thmF2_km):
     #be the min and the last will be the max
     min_alt_km = colormin
     max_alt_km = colormax
-    print("input " + str(hmF2_km) + "colorscale " + str(colormin) + " " + str(colormax))
+    #print("input " + str(hmF2_km) + "colorscale " + str(colormin) + " " + str(colormax))
     # Define the color scale as lists of [R, G, B, A].
     alt_color_scale = [
         [0, 0, 0, hmF2_colors],       # Black
