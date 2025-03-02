@@ -1,7 +1,7 @@
 name: Purge Old Versions of file.txt
 
 on:
-  workflow_dispatch: {}
+  workflow_dispatch:
   schedule:
     - cron: '*/12 * * * *'
     
