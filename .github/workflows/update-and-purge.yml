@@ -3,7 +3,7 @@ name: Purge Old Versions of file.txt
 on:
   workflow_dispatch:
   schedule:
-    - cron: '*/12 * * * *'
+    - cron: '6,16,26,36,46,56 * * * *'
     
 jobs:
   purge-old-versions:
