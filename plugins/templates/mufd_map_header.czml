@@ -1,0 +1,46 @@
+[
+  {
+    "id":"document",
+    "name":"{{ kml_name }}",
+    "version":"1.0",
+    "clock":{
+      "interval":"{{ MinTime }}Z/{{ MaxTime }}Z",
+      "currentTime":"{{ MinTime }}Z",
+      "multiplier":60,
+      "range":"LOOP_STOP",
+      "step":"SYSTEM_CLOCK_MULTIPLIER"
+    }
+  },
+{% block czml_f2_qsos %}
+{%- for row in Rows %}
+  {
+    "id": "id {{ row['Spotter'] }} mufd{{ row['elev_tx'] }}",
+    "name": "time {{ row['timestamp'] }} mufd {{ row['dB'] }} kHz",
+    "description": "time {{ row['timestamp'] }} mufd {{ row['dB'] }} kHz",
+    "polygon": {
+      "positions": {
+        "cartographicDegrees": [
+          {{ row['tx_lng'] - 2.4 }}, {{ row['tx_lat'] - 1.15 }}, 0.0,
+          {{ row['tx_lng'] + 2.4 }}, {{ row['tx_lat'] - 1.15 }}, 0.0,
+          {{ row['tx_lng'] + 2.4 }}, {{ row['tx_lat'] + 1.15 }}, 0.0,
+          {{ row['tx_lng'] - 2.4 }}, {{ row['tx_lat'] + 1.15 }}, 0.0,
+          {{ row['tx_lng'] - 2.4 }}, {{ row['tx_lat'] - 1.15 }}, 0.0
+        ]
+      },
+      "material": {
+        "solidColor": {
+          "color": {
+            {{ line_color(row['dB']) }}
+          }
+        }
+      },
+      "show": [
+        {
+          "boolean": true
+        }
+      ]
+    }
+  }{{ "," if not loop.last }}
+{%- endfor %}{% endblock %}
+
+]
