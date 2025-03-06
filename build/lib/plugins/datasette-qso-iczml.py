@@ -396,10 +396,13 @@ def get_czml(rows):
     if(rows[0]['hmF2Map'] == 1):
         template_file = './plugins/templates/hmf2_iono_map_header.czml';
         hmF2_colors = 255
-    else:
+    elif(rows[0]['hmF2Map'] == 0):
         template_file = './plugins/templates/iono_map_header.czml';
         hmF2_colors = 55
-    
+    else:
+        template_file = './plugins/templates/mufd_map_header.czml';
+        hmF2_colors = 55
+   
 
     with open(template_file) as f:
         #tmpl = Template(f.read())
