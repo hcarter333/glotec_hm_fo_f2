@@ -41,6 +41,7 @@ jobs:
         run: |
           java -jar bfg.jar --delete-files hmf2.iczml
           java -jar bfg.jar --delete-files fof2.czml
+          java -jar bfg.jar --delete-files mufd.czml
           git reflog expire --expire=now --all
           git gc --prune=now --aggressive
       - name: Force push rewritten history
