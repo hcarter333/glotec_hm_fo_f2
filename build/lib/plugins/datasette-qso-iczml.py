@@ -398,10 +398,10 @@ def get_czml(rows):
         hmF2_colors = 255
     elif(rows[0]['hmF2Map'] == 0):
         template_file = './plugins/templates/iono_map_header.czml';
-        hmF2_colors = 55
+        hmF2_colors = 47
     else:
         template_file = './plugins/templates/mufd_map_header.czml';
-        hmF2_colors = 55
+        hmF2_colors = 47
    
 
     with open(template_file) as f:
