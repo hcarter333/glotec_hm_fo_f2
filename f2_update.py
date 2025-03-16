@@ -38,7 +38,7 @@ time.sleep(5)
 
 # Step 3: Pull the first CZML data (fof2.czml).
 url_fof2 = (
-    "http://127.0.0.1:8001/glotec.iczml?sql=select%0D%0A++uid+as+Spotter%2C%0D%0A++timestamp%2C%0D%0A++longitude+as+tx_lng%2C%0D%0A++latitude+as+tx_lat%2C%0D%0A++%28sqrt%28NmF2+%2F.0124%29%29+%2F+1000+as+fof2%2C%0D%0A++%28sqrt%28NmF2+%2F.0124%29%29+%2F+1000+as+dB%2C%0D%0A++hmF2+*+1000+as+elev_tx%2C%0D%0A++%28sqrt%28NmF2+%2F.0124%29%29+%2F+1000+as+edmaxalt%2C%0D%0A++0+as+hmF2Map%2C%0D%0A++NmF2%0D%0Afrom%0D%0A++glotec%0D%0Awhere%0D%0A++%22tx_lat%22+%3E+-90%0D%0A++and+%22tx_lat%22+%3C+90%0D%0A++and+%22tx_lng%22+%3E+-180%0D%0A++and+%22tx_lng%22+%3C+180%0D%0A++and+NmF2+%3E+0%0D%0A++and+%22timestamp%22+%3D+%28select+max%28%22timestamp%22%29+from+glotec%29%0D%0Aand+hmF2+%3E+0%0D%0Aand+NmF2+%3E+0%0D%0order+by%0D%0A++fof2+asc"
+    "http://127.0.0.1:8001/glotec.iczml?sql=select%0D%0A++uid+as+Spotter%2C%0D%0A++timestamp%2C%0D%0A++longitude+as+tx_lng%2C%0D%0A++latitude+as+tx_lat%2C%0D%0A++%28sqrt%28NmF2+%2F.0124%29%29+%2F+1000+as+fof2%2C%0D%0A++%28sqrt%28NmF2+%2F.0124%29%29+%2F+1000+as+dB%2C%0D%0A++hmF2+*+1000+as+elev_tx%2C%0D%0A++%28sqrt%28NmF2+%2F.0124%29%29+%2F+1000+as+edmaxalt%2C%0D%0A++0+as+hmF2Map%2C%0D%0A++NmF2%0D%0Afrom%0D%0A++glotec%0D%0Awhere%0D%0A++%22tx_lat%22+%3E+-90%0D%0A++and+%22tx_lat%22+%3C+90%0D%0A++and+%22tx_lng%22+%3E+-180%0D%0A++and+%22tx_lng%22+%3C+180%0D%0A++and+NmF2+%3E+0%0D%0A++and+%22timestamp%22+%3D+%28select+max%28%22timestamp%22%29+from+glotec%29%0D%0Aand+hmF2+%3E+0%0D%0Aand+NmF2+%3E+0%0D%0Aorder+by%0D%0A++fof2+asc"
 )
 print("Fetching fof2.czml data from Datasette server...")
 resp_fof2 = requests.get(url_fof2)
@@ -64,7 +64,7 @@ print("hmf2.iczml updated.")
 
 # Step 5: Pull the third CZML data (mufd.czml).
 url_mufd = (
-    "http://127.0.0.1:8001/glotec.iczml?sql=SELECT+%0D%0Atimestamp%2C%0D%0Aglotec.longitude+as+tx_lng%2C%0D%0Aglotec.latitude+as+tx_lat%2C%0D%0Aglotec.longitude%2C%0D%0Aglotec.latitude%2C%0D%0A2+as+hmF2Map%2C%0D%0Asqrt%28NmF2%2F.0124%29%2F1000.0+as+fof2%2C%0D%0A%28sqrt%28NmF2%2F.0124%29%2F1000.0%29+*+%281.0%2F%28cos%28atan%28+%28sin%280.4709576138%2F2.0%29%29+%2F+%28%281.0+%2B+%28glotec.hmF2%2F6370.0%29+-cos%280.4709576138%2F2.0%29+%29%29%29%29%29%29+as+dB%2C%0D%0Auid+as+Spotter%2C%0D%0A%28sqrt%28NmF2%2F.0124%29%2F1000.0%29+*+%281.0%2F%28cos%28atan%28+%28sin%280.4709576138%2F2.0%29%29+%2F+%28%281.0+%2B+%28glotec.hmF2%2F6370.0%29+-cos%280.4709576138%2F2.0%29+%29%29%29%29%29%29++as+edmaxalt%2C%0D%0Aglotec.hmF2%0D%0AFROM+glotec+%0D%0Awhere%0D%0Aglotec.timestamp+%3D+%28SELECT+MAX%28timestamp%29+FROM+glotec%29%0D%0Aorder+by+dB+asc"
+    "http://127.0.0.1:8001/glotec.iczml?sql=SELECT+%0D%0Atimestamp%2C%0D%0Aglotec.longitude+as+tx_lng%2C%0D%0Aglotec.latitude+as+tx_lat%2C%0D%0Aglotec.longitude%2C%0D%0Aglotec.latitude%2C%0D%0A2+as+hmF2Map%2C%0D%0Asqrt%28NmF2%2F.0124%29%2F1000.0+as+fof2%2C%0D%0A%28sqrt%28NmF2%2F.0124%29%2F1000.0%29+*+%281.0%2F%28cos%28atan%28+%28sin%280.4709576138%2F2.0%29%29+%2F+%28%281.0+%2B+%28glotec.hmF2%2F6370.0%29+-cos%280.4709576138%2F2.0%29+%29%29%29%29%29%29+as+dB%2C%0D%0Auid+as+Spotter%2C%0D%0A%28sqrt%28NmF2%2F.0124%29%2F1000.0%29+*+%281.0%2F%28cos%28atan%28+%28sin%280.4709576138%2F2.0%29%29+%2F+%28%281.0+%2B+%28glotec.hmF2%2F6370.0%29+-cos%280.4709576138%2F2.0%29+%29%29%29%29%29%29++as+edmaxalt%2C%0D%0Aglotec.hmF2%0D%0AFROM+glotec+%0D%0Awhere%0D%0Aglotec.timestamp+%3D+%28SELECT+MAX%28timestamp%29+FROM+glotec%29%0D%0Aand+hmF2+%3E+0%0D%0Aand+NmF2+%3E+0%0D%0Aorder+by+dB+asc"
 )
 print("Fetching mufd.czml data from Datasette server...")
 resp_mufd = requests.get(url_mufd)
