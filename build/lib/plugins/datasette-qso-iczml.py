@@ -346,7 +346,7 @@ def build_pngs(rows):
 
     # 2) Generate Base64 PNG overlay, write fof2.png
     b64_overlay = generate_fof2_overlay(fof2_list)
-    with open("../fof2.png", "wb") as pngfile:
+    with open("fof2.png", "wb") as pngfile:
         pngfile.write(base64.b64decode(b64_overlay))
 
     # 3) Create HTML with an <img> and associated <map> for tooltips
@@ -456,7 +456,7 @@ def build_pngs(rows):
 </body>
 </html>
 """
-    with open("../fof2.html", "w", encoding="utf-8") as htmlfile:
+    with open("fof2.html", "w", encoding="utf-8") as htmlfile:
         htmlfile.write(html)
 
     print("Wrote fof2.png and fof2.html")
