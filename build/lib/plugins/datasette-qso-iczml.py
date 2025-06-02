@@ -336,9 +336,10 @@ def build_pngs(rows):
             lon   = float(r["tx_lng"])
             lat   = float(r["tx_lat"])
             fof2k = float(r["dB"])
+            time = str(r["timestamp"])
         except Exception:
             continue
-        fof2_list.append((lon, lat, fof2k))
+        fof2_list.append((lon, lat, fof2k, time))
 
     if not fof2_list:
         return None
@@ -364,7 +365,7 @@ def build_pngs(rows):
     cell_height_px = CELL_LAT_DEG / 180.0 * IMG_HEIGHT_PX
 
     area_tags = []
-    for (lon, lat, fof2k) in fof2_list:
+    for (lon, lat, fof2k, time) in fof2_list:
         cx = lon_to_xpx(lon)
         cy = lat_to_ypx(lat)
 
@@ -386,7 +387,7 @@ def build_pngs(rows):
         # Make <area> with title showing FOF2 in kHz
         area = (
             f'<area shape="rect" coords="{int(x1)},{int(y1)},{int(x2)},{int(y2)}" '
-            f'title="FoF2: {int(fof2k)} kHz lon: {lon} lat: {lat} " />'
+            f'title="FoF2: {int(fof2k)} kHz lon: {lon} lat: {lat} time: {time}" />'
         )
         area_tags.append(area)
 
