@@ -390,6 +390,7 @@ def build_pngs(rows):
             f'title="FoF2: {int(fof2k)} kHz lon: {lon} lat: {lat} time: {str(time)}" />'
         )
         print("time " + str(time))
+        junk to fail
         area_tags.append(area)
 
     # 4) Write out HTML file
