@@ -17,6 +17,8 @@ dependencies = [
     "numpy",
     "requests",
     "netCDF4",
+    "base64",
+    "matplotlib",
 ]
 
 [project.urls]
