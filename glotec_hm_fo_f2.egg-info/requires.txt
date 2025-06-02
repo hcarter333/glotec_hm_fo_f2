@@ -4,6 +4,7 @@ sqlite-utils
 numpy
 requests
 netCDF4
+matplotlib
 
 [test]
 pytest<=7.4.3

@@ -18,6 +18,7 @@ Requires-Dist: sqlite-utils
 Requires-Dist: numpy
 Requires-Dist: requests
 Requires-Dist: netCDF4
+Requires-Dist: matplotlib
 Provides-Extra: test
 Requires-Dist: pytest<=7.4.3; extra == "test"
 Requires-Dist: pytest-asyncio<=0.21.1; extra == "test"
