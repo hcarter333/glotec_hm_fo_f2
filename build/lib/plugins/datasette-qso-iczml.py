@@ -313,13 +313,10 @@ def time_span(rows):
     print("min_time = " + str(min_time) + " max_time = " + str(max_time))
     return mins
 
-def build_pngs(rows):
+def build_pngs(rows, bfile, unit):
     """
-    Generate fof2.png and an HTML page with tooltips if hmF2Map == 0.
+    Generate png map image and an HTML page with tooltips.
     """
-    if not rows or rows[0]["hmF2Map"] != 0:
-        return None
-
     # 1) Build list of (lon, lat, fof2_km)
     fof2_list = []
     for r in rows:
@@ -337,7 +334,7 @@ def build_pngs(rows):
 
     # 2) Generate Base64 PNG overlay, write fof2.png
     b64_overlay = generate_fof2_overlay(fof2_list)
-    with open("fof2.png", "wb") as pngfile:
+    with open(bfile + ".png", "wb") as pngfile:
         pngfile.write(base64.b64decode(b64_overlay))
 
     # 3) Create HTML with an <img> and associated <map> for tooltips
@@ -378,7 +375,7 @@ def build_pngs(rows):
         # Make <area> with title showing FOF2 in kHz
         area = (
             f'<area shape="rect" coords="{int(x1)},{int(y1)},{int(x2)},{int(y2)}" '
-            f'title="FoF2: {int(fof2k)} kHz lon: {lon} lat: {lat} time: {time}" />'
+            f'title="FoF2: {int(fof2k)} {unit} lon: {lon} lat: {lat} time: {time}" />'
         )
         area_tags.append(area)
 
@@ -447,7 +444,7 @@ def build_pngs(rows):
 </body>
 </html>
 """
-    with open("fof2.html", "w", encoding="utf-8") as htmlfile:
+    with open(bfile + ".html", "w", encoding="utf-8") as htmlfile:
         htmlfile.write(html)
 
     print("Wrote fof2.png and fof2.html")
@@ -499,13 +496,15 @@ def get_czml(rows):
     if rows[0]['hmF2Map'] == 1:
         template_file = './plugins/templates/hmf2_iono_map_header.czml'
         hmF2_colors = 255
+        build_pngs(rows, "hmF2", "km")
     elif rows[0]['hmF2Map'] == 0:
         template_file = './plugins/templates/iono_map_header.czml'
         hmF2_colors = 47
-        build_pngs(rows)
+        build_pngs(rows, "fof2", "kHz")
     else:
         template_file = './plugins/templates/mufd_map_header.czml'
         hmF2_colors = 47
+        build_pngs(rows, "mufd", "kHz")
 
     with open(template_file) as f:
         tmpl = Environment(loader=FileSystemLoader("./plugins/templates")).from_string(f.read())
