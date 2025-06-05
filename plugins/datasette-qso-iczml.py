@@ -375,7 +375,7 @@ def build_pngs(rows, bfile, unit):
         # Make <area> with title showing FOF2 in kHz
         area = (
             f'<area shape="rect" coords="{int(x1)},{int(y1)},{int(x2)},{int(y2)}" '
-            f'title="FoF2: {int(fof2k)} {unit} lon: {lon} lat: {lat} time: {time}" />'
+            f'title="{bfile}: {int(fof2k)} {unit} lon: {lon} lat: {lat} time: {time}" />'
         )
         area_tags.append(area)
 
