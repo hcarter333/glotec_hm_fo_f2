@@ -39,7 +39,7 @@ jobs:
           wget https://repo1.maven.org/maven2/com/madgag/bfg/1.14.0/bfg-1.14.0.jar -O bfg.jar
       - name: Purge old revisions of file.txt
         run: |
-          java -jar bfg.jar --delete-files "{hmf2.iczml,fof2.czml,mufd.czml}"
+          java -jar bfg.jar --delete-files "{hmf2.iczml,fof2.czml,mufd.czml,hmF2.png,fof2.png,mufd.png}"
           git reflog expire --expire=now --all
           git gc --prune=now 
       - name: Force push rewritten history
