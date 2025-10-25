@@ -55,4 +55,7 @@ their area by exploring the map.
   
   ![threemap](https://github.com/user-attachments/assets/0124d19b-5e5c-424b-a17e-3ca26f481f8c)
 
-The map is hosted on one of our blog pages and can be viewed [here]([url](https://copaseticflow.blogspot.com/p/project-toucans-current-f2-map.html)).
+The map is hosted on one of our blog pages and can be viewed [here]([url](https://copaseticflow.blogspot.com/p/project-toucans-current-f2-map.html)). 
+
+ ### Implementation notes
+ The png and html image map creation steps are done in the [Datasette](https://github.com/simonw/datasette) plugins that create the czml files.
